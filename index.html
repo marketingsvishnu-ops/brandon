@@ -1,98 +1,294 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Website Notification Poster</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motivation Blog</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    body {
-      font-family: Arial, sans-serif;
-      background: #f4f6f8;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-    }
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            color: #222;
+        }
 
-    .poster {
-      width: 90%;
-      max-width: 700px;
-      padding: 50px 40px;
-      text-align: center;
-      background: white;
-      border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.12);
-    }
+        /* Header */
+        header {
+            background: #111;
+            color: white;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-    .icon {
-      font-size: 60px;
-      margin-bottom: 20px;
-    }
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+        }
 
-    h1 {
-      font-size: 42px;
-      margin-bottom: 15px;
-      color: #222;
-    }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 16px;
+        }
 
-    p {
-      font-size: 20px;
-      line-height: 1.6;
-      color: #666;
-      margin-bottom: 25px;
-    }
+        nav a:hover {
+            color: #ffb703;
+        }
 
-    .btn {
-      display: inline-block;
-      padding: 14px 30px;
-      background: #2563eb;
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
-      font-size: 18px;
-      font-weight: bold;
-    }
+        /* Hero Poster */
+        .hero {
+            min-height: 500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(
+                rgba(0,0,0,0.65),
+                rgba(0,0,0,0.65)
+            ),
+            url("https://images.unsplash.com/photo-1499750310107-5fef28a66643")
+            center/cover;
+            color: white;
+        }
 
-    .btn:hover {
-      background: #1d4ed8;
-    }
+        .hero-content {
+            max-width: 800px;
+        }
 
-    .notice {
-      margin-top: 25px;
-      padding: 15px;
-      background: #eff6ff;
-      border-radius: 10px;
-      color: #1e40af;
-      font-size: 16px;
-    }
-  </style>
+        .hero h1 {
+            font-size: 55px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #ffb703;
+        }
+
+        .hero p {
+            font-size: 21px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #ffb703;
+            color: #111;
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: white;
+            transform: translateY(-3px);
+        }
+
+        /* Blog Section */
+        .blog {
+            padding: 60px 8%;
+        }
+
+        .blog h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 40px;
+        }
+
+        .posts {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .post {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: 0.3s;
+        }
+
+        .post:hover {
+            transform: translateY(-8px);
+        }
+
+        .post h3 {
+            font-size: 23px;
+            margin-bottom: 15px;
+        }
+
+        .post p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .read-more {
+            color: #e09b00;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        /* Quote */
+        .quote {
+            background: #111;
+            color: white;
+            padding: 70px 20px;
+            text-align: center;
+        }
+
+        .quote h2 {
+            font-size: 32px;
+            max-width: 800px;
+            margin: auto;
+            line-height: 1.5;
+        }
+
+        .quote p {
+            margin-top: 20px;
+            color: #ffb703;
+        }
+
+        /* Footer */
+        footer {
+            background: #000;
+            color: #aaa;
+            text-align: center;
+            padding: 25px;
+        }
+
+        /* Responsive */
+        @media (max-width: 800px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .posts {
+                grid-template-columns: 1fr;
+            }
+
+            nav a {
+                margin: 0 8px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-  <div class="poster">
-    <div class="icon">🔔</div>
+    <!-- Header -->
+    <header>
+        <div class="logo">MOTIVATE</div>
 
-    <h1>Important Notification</h1>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Blog</a>
+            <a href="#">Quotes</a>
+            <a href="#">About</a>
+        </nav>
+    </header>
 
-    <p>
-      We have an important update for you.
-      Please visit our website to view the latest information.
-    </p>
 
-    <a href="#" class="btn">View Notification</a>
+    <!-- Main Poster -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Believe in <span>Yourself</span></h1>
 
-    <div class="notice">
-      📢 Stay updated with our latest announcements and news.
-    </div>
-  </div>
+            <p>
+                Every great journey begins with a single step.
+                Stay focused, stay positive, and never give up on your dreams.
+            </p>
+
+            <a href="#blog" class="btn">Explore Motivation</a>
+        </div>
+    </section>
+
+
+    <!-- Blog Posts -->
+    <section class="blog" id="blog">
+
+        <h2>Latest Motivation</h2>
+
+        <div class="posts">
+
+            <div class="post">
+                <h3>💪 Never Give Up</h3>
+
+                <p>
+                    Success doesn't happen overnight.
+                    Keep moving forward even when the journey becomes difficult.
+                    Your persistence will eventually create results.
+                </p>
+
+                <a href="#" class="read-more">Read More →</a>
+            </div>
+
+
+            <div class="post">
+                <h3>🎯 Stay Focused</h3>
+
+                <p>
+                    Set clear goals and focus on what truly matters.
+                    Avoid distractions and take one small step toward your goal
+                    every single day.
+                </p>
+
+                <a href="#" class="read-more">Read More →</a>
+            </div>
+
+
+            <div class="post">
+                <h3>🌟 Believe in Yourself</h3>
+
+                <p>
+                    Confidence starts with believing that you are capable.
+                    Trust your abilities, learn from failure, and keep improving.
+                </p>
+
+                <a href="#" class="read-more">Read More →</a>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- Motivational Quote -->
+    <section class="quote">
+
+        <h2>
+            “The only way to achieve the impossible
+            is to believe it is possible.”
+        </h2>
+
+        <p>— Keep Going • Keep Growing</p>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Motivate Blog | Inspire. Believe. Achieve.</p>
+    </footer>
 
 </body>
 </html>
+```
